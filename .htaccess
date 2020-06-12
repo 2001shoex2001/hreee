@@ -1,0 +1,217 @@
+#---------------------------------------------------------------------------------------------------------
+# Помощь/Настройка/Установка/Раскрутка проектов - Skype: admin.superoc | vk.com/superoc
+#---------------------------------------------------------------------------------------------------------
+DirectoryIndex index.php
+RewriteEngine On
+AddDefaultCharset UTF-8
+#---------------------------------------------------------------------------------------------------------
+# настройки основного домена
+#---------------------------------------------------------------------------------------------------------
+RewriteCond %{HTTP_HOST} ^www\.(.*) [NC]
+RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+
+#---------------------------------------------------------------------------------------------------------
+# Настройка верхнего меню проекта
+#---------------------------------------------------------------------------------------------------------
+RewriteRule ^index.html$ index.php [L]                                                        // Главная стрница
+RewriteRule ^news(/?)+$ index.php?menu=news [L]                                               // Новости проекта
+RewriteRule ^rules(/?)+$ index.php?menu=rules [L]                                             // Правила проекта
+RewriteRule ^about(/?)+$ index.php?menu=about [L]                                             // Об игре
+RewriteRule ^contacts(/?)+$ index.php?menu=contacts [L]                                       // Связь/Впоросы
+RewriteRule ^stats(/?)+$ index.php?menu=stats [L]                                       // Связь/Впоросы
+RewriteRule ^signup(/?)+$ index.php?menu=signup [L]                                           // Регистрация
+RewriteRule ^login(/?)+$ index.php?menu=login [L]                                           // ЛОГИН
+RewriteRule ^signup/key/(.*)(/?)+$ index.php?menu=signup&key=$1 [L]                           // Регистрация с E-Mail
+RewriteRule ^recovery(/?)+$ index.php?menu=recovery [L]                                       // Восстановление пароля
+RewriteRule ^payments(/?)+$ index.php?menu=payments [L]                                       // Последние выплаты
+RewriteRule ^account/payments(/?)+$ index.php?menu=account&sel=payments [L]                                       // Последние выплаты
+RewriteRule ^fail(/?)+$ index.php?menu=fail [L]      // fail
+RewriteRule ^success(/?)+$ index.php?menu=success [L]      // success
+
+RewriteRule ^account/payin_qiwi(/?)+$ index.php?menu=account&sel=payin_qiwi [L]
+#---------------------------------------------------------------------------------------------------------
+# Меню проекта после авторизации
+#---------------------------------------------------------------------------------------------------------
+RewriteRule ^account(/?)+$ index.php?menu=account [L]                                         // Мой профиль
+RewriteRule ^account/awards(/?)+$ index.php?menu=account&sel=awards [L]                       // Мои награды
+RewriteRule ^account/config(/?)+$ index.php?menu=account&sel=config [L]                       // Мои настройки
+
+RewriteRule ^account/attack(/?)+$ index.php?menu=account&sel=attack [L]                       // Атаковать корабли
+RewriteRule ^account/farm(/?)+$ index.php?menu=account&sel=farm [L]                           // Рынок кораблей
+RewriteRule ^account/shop(/?)+$ index.php?menu=account&sel=shop [L]                           // Магазин кораблей
+RewriteRule ^account/store(/?)+$ index.php?menu=account&sel=store [L]                         // Забрать прибыль
+RewriteRule ^account/market(/?)+$ index.php?menu=account&sel=market [L]                       // Продать золото
+
+RewriteRule ^account/bonusactiv(/?)+$ index.php?menu=account&sel=bonusactiv [L]               // Активные бонусы
+RewriteRule ^account/bonus5(/?)+$ index.php?menu=account&sel=bonus5 [L]                       // Каждые 5 минут
+RewriteRule ^account/bonus1(/?)+$ index.php?menu=account&sel=bonus1 [L]                       // Каждый 1 час
+RewriteRule ^account/bonus12(/?)+$ index.php?menu=account&sel=bonus12 [L]                     // Каждые 12 часов
+RewriteRule ^account/bonus(/?)+$ index.php?menu=account&sel=bonus [L]                         // Ежедневный бонус
+RewriteRule ^account/bonus2(/?)+$ index.php?menu=account&sel=bonus2 [L]                       // Бонус с риском
+
+RewriteRule ^account/referals(/?)+$ index.php?menu=account&sel=referals [L]                   // Мои рефералы
+RewriteRule ^account/referals1(/?)+$ index.php?menu=account&sel=referals1 [L]                 // Рекламные баннеры
+RewriteRule ^competition(/?)+$ index.php?menu=competition [L]                                 // Конкурс активный
+RewriteRule ^competition/list(/?)+$ index.php?menu=competition&list [L]                       // Конкурс завершен
+
+RewriteRule ^account/knb(/?)+$ index.php?menu=account&sel=knb [L]                             // Игра К-Н-Б
+RewriteRule ^account/lottery(/?)+$ index.php?menu=account&sel=lottery [L]                     // Игра Лотерея
+RewriteRule ^account/pay_points(/?)+$ index.php?menu=account&sel=pay_points [L]
+RewriteRule ^account/payment_pay(/?)+$ index.php?menu=account&sel=payment_pay [L]                     // заказать выплату
+RewriteRule ^account/payment_ya(/?)+$ index.php?menu=account&sel=payment_ya [L]                     // заказать выплату YA
+RewriteRule ^account/megakassa_insert(/?)+$ index.php?menu=account&sel=megakassa_insert [L]                       // megakassa
+RewriteRule ^account/insert_all(/?)+$ index.php?menu=account&sel=insert_all [L]                       // Пополнить баланс
+RewriteRule ^account/insert(/?)+$ index.php?menu=account&sel=insert [L]                       // Пополнить баланс
+RewriteRule ^account/payment(/?)+$ index.php?menu=account&sel=payment [L]                     // заказать выплату
+RewriteRule ^account/payment/([0-9]+)(/?)+$ index.php?menu=account&sel=payment&pay_id=$1 [L]  // 
+RewriteRule ^account/swap(/?)+$ index.php?menu=account&sel=swap [L]                           // Обменник
+
+RewriteRule ^account/exit(/?)+$ index.php?menu=account&sel=exit [L]                           // Выход из профиля
+
+#---------------------------------------------------------------------------------------------------------
+
+
+RewriteRule ^account/games(/?)+$ index.php?menu=account&sel=games [L]
+RewriteRule ^account/knb(/?)+$ index.php?menu=account&sel=knb [L]
+RewriteRule ^account/chat(/?)+$ index.php?menu=account&sel=chat [L]
+
+#Камикадзе
+RewriteRule ^account/kamikadze2(/?)+$ index.php?menu=account&sel=kamikadze2 [L]
+RewriteRule ^account/kamikadze(/?)+$ index.php?menu=account&sel=kamikadze [L]
+
+#Орел или Решка
+RewriteRule ^account/orel(/?)+$ index.php?menu=account&sel=orel [L]
+
+#Мгновенная лотерея
+RewriteRule ^account/lotterym(/?)+$ index.php?menu=account&sel=lotterym [QSA]
+RewriteRule ^lotm(/?)+$ /load/lotery.php [L]
+RewriteRule ^startm(/?)+$ /load/server_lotom.php [QSA]
+
+#серфинг
+RewriteRule ^account/serfing(/?)+$ index.php?menu=account&sel=serfing [L]
+RewriteRule ^account/serfing/edit/([0-9]+)(/?)+$ index.php?menu=account&sel=serfing_add&advedit=$1 [L]
+RewriteRule ^account/serfing/delete/([0-9]+)(/?)+$ index.php?menu=account&sel=serfing&delete=$1 [L]
+RewriteRule ^account/serfing/add(/?)+$ index.php?menu=account&sel=serfing_add [L]
+RewriteRule ^account/serfing/cabinet(/?)+$ index.php?menu=account&sel=serfing_cabinet [L]
+RewriteRule ^account/serfing/moder(/?)+$ index.php?menu=account&sel=serfing_moder [L]
+RewriteRule ^account/serfing/view/([0-9]+)(/?)+$ _serfing_view.php?view=$1 [L]
+
+RewriteRule ^account/insert_serf(/?)+$ index.php?menu=account&sel=insert_serf [L]
+RewriteRule ^account/payment_serf/([0-9]+)(/?)+$ index.php?menu=account&sel=payment_serf&pay_id=$1 [L]
+RewriteRule ^account/payment_serf(/?)+$ index.php?menu=account&sel=payment_serf [L]
+
+#Отзывы
+RewriteRule ^otziv(/?)+$ index.php?menu=otziv [L]
+RewriteRule ^otziv/([0-9]+)(/?)+$ index.php?menu=otziv&page=$1 [L]
+
+# Пользователи
+RewriteRule ^users/([0-9]+)(/?)+$ index.php?menu=users&page=$1 [L]
+RewriteRule ^users(/?)+$ index.php?menu=users [L]
+
+# Аккаунт
+RewriteRule ^account/chat(/?)+$ index.php?menu=account&sel=chat [L]
+RewriteRule ^account/chat/noban/([a-zA-Z0-9]+)(/?)+$ index.php?menu=account&sel=chat&noban=$1 [L]
+RewriteRule ^account/bar(/?)+$ index.php?menu=account&sel=bar [L]
+RewriteRule ^account/trade(/?)+$ index.php?menu=account&sel=trade [L]
+RewriteRule ^account/kazarma(/?)+$ index.php?menu=account&sel=kazarma [L]
+RewriteRule ^account/kazna(/?)+$ index.php?menu=account&sel=kazna [L]
+RewriteRule ^account/igrun(/?)+$ index.php?menu=account&sel=igrun [L]
+RewriteRule ^account/power(/?)+$ index.php?menu=account&sel=power [L]
+RewriteRule ^account/power1(/?)+$ index.php?menu=account&sel=power1 [L]
+RewriteRule ^account/pilorama(/?)+$ index.php?menu=account&sel=pilorama [L]
+RewriteRule ^account/melnica(/?)+$ index.php?menu=account&sel=melnica [L]
+RewriteRule ^account/instruktor(/?)+$ index.php?menu=account&sel=instruktor [L]
+RewriteRule ^account/kolbasniyceh(/?)+$ index.php?menu=account&sel=kolbasniyceh [L]
+RewriteRule ^account/shashlichnaya(/?)+$ index.php?menu=account&sel=shashlichnaya [L]
+RewriteRule ^account/kirpichzavod(/?)+$ index.php?menu=account&sel=kirpichzavod [L]
+RewriteRule ^account/liteyniyzavod(/?)+$ index.php?menu=account&sel=liteyniyzavod [L]
+RewriteRule ^account/pekarna(/?)+$ index.php?menu=account&sel=pekarna [L]
+RewriteRule ^account/pivovarna(/?)+$ index.php?menu=account&sel=pivovarna [L]
+RewriteRule ^account/insertwm(/?)+$ index.php?menu=account&sel=insertwm [L]
+RewriteRule ^account/bonus(/?)+$ index.php?menu=account&sel=bonus [L]
+RewriteRule ^account/credit(/?)+$ index.php?menu=account&sel=credit [L]
+RewriteRule ^account/config(/?)+$ index.php?menu=account&sel=config [L]
+RewriteRule ^account/pole(/?)+$ index.php?menu=account&sel=pole [L]
+RewriteRule ^account/insert(/?)+$ index.php?menu=account&sel=insert [L]
+RewriteRule ^account/insertp(/?)+$ index.php?menu=account&sel=insertp [L]
+RewriteRule ^account/insertf(/?)+$ index.php?menu=account&sel=insertf [L]
+RewriteRule ^account/payment/([0-9]+)(/?)+$ index.php?menu=account&sel=payment&pay_id=$1 [L]
+RewriteRule ^account/payment(/?)+$ index.php?menu=account&sel=payment [L]
+RewriteRule ^account/market(/?)+$ index.php?menu=account&sel=market [L]
+RewriteRule ^account/swap(/?)+$ index.php?menu=account&sel=swap [L]
+RewriteRule ^account/store(/?)+$ index.php?menu=account&sel=store [L]
+RewriteRule ^account/sklad(/?)+$ index.php?menu=account&sel=sklad [L]
+RewriteRule ^account/referals(/?)+$ index.php?menu=account&sel=referals [L]
+
+RewriteRule ^account/notice(/?)+$ index.php?menu=account&sel=notice [L]
+RewriteRule ^account/promo(/?)+$ index.php?menu=account&sel=promo [L]
+
+RewriteRule ^account/farm(/?)+$ index.php?menu=account&sel=farm [L]
+RewriteRule ^account/farm2(/?)+$ index.php?menu=account&sel=farm2 [L]
+RewriteRule ^account/farm3(/?)+$ index.php?menu=account&sel=farm3 [L]
+RewriteRule ^account/exit(/?)+$ index.php?menu=account&sel=exit [L]
+RewriteRule ^account/wm_insert(/?)+$ index.php?menu=account&sel=wm_insert [L]
+RewriteRule ^account(/?)+$ index.php?menu=account [L]
+RewriteRule ^account/swland(/?)+$ index.php?menu=account&sel=swland [L]
+RewriteRule ^account/swland/([0-9]+)(/?)+$ index.php?menu=account&sel=swland&id=$1 [L]
+RewriteRule ^competition(/?)+$ index.php?menu=competition [L]
+RewriteRule ^competition/list(/?)+$ index.php?menu=competition&list [L]
+RewriteRule ^top(/?)+$ index.php?menu=top [L]
+RewriteRule ^top/([0-9]+)(/?)+$ index.php?menu=top&page=$1 [L]
+RewriteRule ^account/matrix(/?)+$ index.php?menu=account&sel=matrix [L]
+RewriteRule ^account/pin(/?)+$ index.php?menu=account&sel=pin [L]
+RewriteRule ^account/coinflip(/?)+$ index.php?menu=account&sel=coinflip [L]
+RewriteRule ^account/kamikadze2(/?)+$ index.php?menu=account&sel=kamikadze2 [L]
+
+#Внутренняя почта
+RewriteRule ^account/pm(/?)+$ index.php?menu=account&sel=pm [L]
+RewriteRule ^account/pm/inbox(/?)+$ index.php?menu=account&sel=pm&inbox [L]
+RewriteRule ^account/pm/outbox(/?)+$ index.php?menu=account&sel=pm&outbox [L]
+RewriteRule ^account/pm/referals(/?)+$ index.php?menu=account&sel=pm&referals [L]
+
+#Стена пользака
+RewriteRule ^account/wall/([-a-zA-Z0-9_]+)(/?)+$ index.php?menu=account&sel=wall&name=$1 [L]
+RewriteRule ^account/wall(/?)+$ index.php?menu=account&sel=wall [L]
+RewriteRule ^account/wall_serch(/?)+$ index.php?menu=account&sel=wall_serch [L]
+
+#Тикеты
+RewriteRule ^account/ticket(/?)+$ index.php?menu=account&sel=ticket [L]
+RewriteRule ^account/ticket/id/([0-9]+)(/?)+$ index.php?menu=account&sel=ticket&id=$1 [L]
+RewriteRule ^account/newticket(/?)+$ index.php?menu=account&sel=new_ticket [L]
+
+#Элексир
+RewriteRule ^account/elixir(/?)+$ index.php?menu=account&sel=elixir [L]
+
+#Админские ссылки
+
+RewriteRule ^admin/qiwi_insert(/?)+$ admin/index.php?menu=_qiwi_insert.php [L]
+RewriteRule ^admin/ticket/id/([0-9]+)(/?)+$ admin/index.php?menu=ticket&id=$1 [L]
+RewriteRule ^admin/ticket(/?)+$ admin/index.php?menu=ticket [L]
+RewriteRule ^admin/stats(/?)+$ admin/index.php?menu=stats [L]
+RewriteRule ^admin/config(/?)+$ admin/index.php?menu=config [L]
+RewriteRule ^admin/contacts(/?)+$ admin/index.php?menu=contacts [L]
+RewriteRule ^admin/rules(/?)+$ admin/index.php?menu=rules [L]
+RewriteRule ^admin/about(/?)+$ admin/index.php?menu=about [L]
+RewriteRule ^admin/story_buy(/?)+$ admin/index.php?menu=story_buy [L]
+RewriteRule ^admin/story_swap(/?)+$ admin/index.php?menu=story_swap [L]
+RewriteRule ^admin/story_insert(/?)+$ admin/index.php?menu=story_insert [L]
+RewriteRule ^admin/story_sell(/?)+$ admin/index.php?menu=story_sell [L]
+RewriteRule ^admin/news(/?)+$ admin/index.php?menu=news [L]
+RewriteRule ^admin/users(/?)+$ admin/index.php?menu=users [L]
+RewriteRule ^admin/sender(/?)+$ admin/index.php?menu=sender [L]
+RewriteRule ^admin/payments(/?)+$ admin/index.php?menu=payments [L]
+RewriteRule ^admin/pin(/?)+$ admin/index.php?menu=pin [L]
+RewriteRule ^admin/torg(/?)+$ admin/index.php?menu=torg [L]
+RewriteRule ^admin/exit(/?)+$ admin/index.php?menu=exit [L]
+
+#Модераторские ссылки
+
+RewriteRule ^admin/ticket/id/([0-9]+)(/?)+$ admin/index.php?menu=ticket&id=$1 [L]
+RewriteRule ^admin/ticket(/?)+$ admin/index.php?menu=ticket [L]
+RewriteRule ^admin/stats(/?)+$ admin/index.php?menu=stats [L]
+RewriteRule ^admin/story_buy(/?)+$ admin/index.php?menu=story_buy [L]
+RewriteRule ^admin/story_swap(/?)+$ admin/index.php?menu=story_swap [L]
+RewriteRule ^admin/story_sell(/?)+$ admin/index.php?menu=story_sell [L]
+RewriteRule ^admin/news(/?)+$ admin/index.php?menu=news [L]
+RewriteRule ^admin/payments(/?)+$ admin/index.php?menu=payments [L]
+RewriteRule ^admin/exit(/?)+$ admin/index.php?menu=exit [L]
